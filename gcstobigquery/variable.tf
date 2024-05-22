@@ -2,8 +2,26 @@
 variable "destination_table_name" {
   description = "Destination Table Name"
   type        = string
-  # default = "terrafrom_gcstobq"
+  default = "terrafrom_gcstobq"
 }
+
+
+variable "project" {
+
+  type = string
+}
+variable "region" {
+
+  type = string
+}
+# variable "zone" {
+
+#   type = string
+# }
+# variable "credentials" {
+
+#   type = string
+# }
 
 variable "data_source_id" {
   description = "Contains Data Source Type , ex: GCS,Teradata etc"
@@ -19,19 +37,20 @@ variable "data_destination_id" {
 
 variable "transfer_job_name" {
   description = "Name of the Job to Created with"
-  type = string
+  type        = string
+  default = "terrafrom_gcstobq"
 }
 
 variable "encoding" {
 
-default = "UTF8"
+  default = "UTF8"
 
 }
 
 variable "delimiter" {
 
   default = ","
-  
+
 }
 
 variable "file_format" {
@@ -41,11 +60,11 @@ variable "file_format" {
 variable "service_account" {
 
   default = "terraform@playpen-e3bd38.iam.gserviceaccount.com"
-  
+
 }
 
 variable "database_type" {
 
   default = "Teradata"
-  
+
 }
