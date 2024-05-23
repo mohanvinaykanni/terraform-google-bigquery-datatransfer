@@ -1,0 +1,7 @@
+
+
+bqtable_data = { config1 = { data_destination_id = "dev",
+  destination_table_name = "terrafrom_gcstobq",
+transfer_job_name = "terrafrom_gcstobq"
+  }
+}

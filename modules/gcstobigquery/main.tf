@@ -1,18 +1,19 @@
 
 # Data Transfer from GCS to Bigquery
 resource "google_bigquery_data_transfer_config" "terrafromgcstobq" {
+  for_each               = var.bqtable_data
   data_refresh_window_days  = 0
   data_source_id            = var.data_source_id
-  destination_dataset_id    = var.data_destination_id
+  destination_dataset_id    = each.value.data_destination_id
   disabled                  = false
-  display_name              = var.transfer_job_name
+  display_name              = each.value.transfer_job_name
   location                  = var.region
   notification_pubsub_topic = null
   service_account_name      = var.service_account
 
   params = {
-    "data_path_template"              = "gs://europe-central2-comp1-f38e0806-bucket/data/test1.csv"
-    "destination_table_name_template" = var.destination_table_name
+    "data_path_template"              = each.value.data_path_template
+    "destination_table_name_template" = each.value.destination_table_name
     "encoding"                        = var.encoding
     "field_delimiter"                 = var.delimiter
     "file_format"                     = var.file_format

@@ -1,10 +1,19 @@
 # Input variable definitions
-variable "destination_table_name" {
-  description = "Destination Table Name"
-  type        = string
-  default = "terrafrom_gcstobq"
-}
+# variable "destination_table_name" {
+#   description = "Destination Table Name"
+#   type        = string
+#   default = "terrafrom_gcstobq"
+# }
 
+
+variable "bqtable_data" {
+  type = map(object({
+    destination_table_name     = string
+    data_destination_id    = string
+    transfer_job_name   = string
+    data_path_template = string
+  }))
+}
 
 variable "project" {
 
@@ -29,17 +38,17 @@ variable "data_source_id" {
   default     = "google_cloud_storage"
 }
 
-variable "data_destination_id" {
-  description = "Contains Bigquery Database Name"
-  type        = string
-  default     = "dev"
-}
+# variable "data_destination_id" {
+#   description = "Contains Bigquery Database Name"
+#   type        = string
+#   default     = "dev"
+# }
 
-variable "transfer_job_name" {
-  description = "Name of the Job to Created with"
-  type        = string
-  default = "terrafrom_gcstobq"
-}
+# variable "transfer_job_name" {
+#   description = "Name of the Job to Created with"
+#   type        = string
+#   default = "terrafrom_gcstobq"
+# }
 
 variable "encoding" {
 
