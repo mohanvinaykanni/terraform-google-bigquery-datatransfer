@@ -35,7 +35,7 @@ variable "region" {
 variable "data_source_id" {
   description = "Contains Data Source Type , ex: GCS,Teradata etc"
   type        = string
-  default     = "google_cloud_storage"
+  # default     = "google_cloud_storage"
 }
 
 # variable "data_destination_id" {
@@ -72,8 +72,6 @@ variable "service_account" {
 
 }
 
-variable "database_type" {
-
-  default = "Teradata"
+variable "schedule" {
 
 }

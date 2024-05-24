@@ -15,21 +15,17 @@ provider "google" {
 }
 
 
-
-variable "bqtable_data" {
-  type = map(object({
-    destination_table_name     = string
-    data_destination_id    = string
-    transfer_job_name   = string
-    data_path_template = string
-  }))
-}
-
 module "terrafromgcstobq" {
-  source                 = "./modules/gcstobigquery"
-  project                = local.project
-  region                 = local.region
-  bqtable_data = var.bqtable_data
+  source         = "./modules/gcstobigquery"
+  project        = local.project
+  region         = local.region
+  bqtable_data   = var.bqtable_data
+  data_source_id = var.data_source_id
+  encoding       = var.encoding
+  delimiter      = var.delimiter
+  file_format    = var.file_format
+  schedule       = var.schedule
+
 
 }
 

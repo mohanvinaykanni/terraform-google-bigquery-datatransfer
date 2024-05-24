@@ -22,7 +22,7 @@ resource "google_bigquery_data_transfer_config" "terrafromgcstobq" {
     "write_disposition"               = "APPEND"
   }
   project  = var.project
-  schedule = "every 60 minutes" 
+  schedule = var.schedule
 
   schedule_options {
     disable_auto_scheduling = false
